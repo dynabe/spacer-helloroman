@@ -2,11 +2,13 @@
   <input
     id="search"
     name="search"
+    :class="{ dark }"
     :value="value"
     @input="handleChange"
   />
 </template>
 <script>
+/* eslint-disable */
 export default {
   name: 'SearchInput',
   props: {
@@ -14,6 +16,10 @@ export default {
       type: String,
       required: true,
     },
+    dark: {
+      type: Boolean,
+      deafult: false,
+    }
   },
   methods: {
     handleChange(e) {
@@ -45,5 +51,14 @@ export default {
   input:focus {
     outline: none;
     box-shadow: 0 10px 20px -8px rgba(255,255,255, .5);
+  }
+
+  .dark {
+    color: #1e3d4a;
+    border-bottom-color: #1e3d4a;
+  }
+
+  .dark:focus {
+    box-shadow: 0 10px 20px -8px rgba(#1e3d4a, 0.5)
   }
 </style>
